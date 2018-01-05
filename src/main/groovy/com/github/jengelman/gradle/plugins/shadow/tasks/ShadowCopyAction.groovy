@@ -286,7 +286,7 @@ class ShadowCopyAction implements CopyAction {
 
         private boolean isUnused(String classPath) {
             final String className = FilenameUtils.removeExtension(classPath)
-                    .replace(File.separatorChar, '.' as char)
+                    .replace('/' as char, '.' as char)
             final boolean result = unused.contains(className)
             if (result) {
                 log.debug("Dropping unused class: $className")

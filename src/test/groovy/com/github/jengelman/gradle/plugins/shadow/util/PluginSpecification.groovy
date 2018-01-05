@@ -56,6 +56,7 @@ class PluginSpecification extends Specification {
         GradleRunner.create()
                 .withProjectDir(dir.root)
                 .forwardOutput()
+                .withDebug(true)
                 .withPluginClasspath()
     }
 

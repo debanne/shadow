@@ -252,7 +252,7 @@ class ShadowPluginSpec extends PluginSpecification {
         File serverOutput = file('server/build/libs/server-all.jar')
 
         when:
-        runner.withArguments(':server:shadowJar').withDebug(true).build()
+        runner.withArguments(':server:shadowJar', '--stacktrace').withDebug(true).build()
 
         then:
         contains(serverOutput, [

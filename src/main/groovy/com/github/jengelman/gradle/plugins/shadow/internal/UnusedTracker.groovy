@@ -28,11 +28,11 @@ class UnusedTracker {
         for (entryPoint in entryPoints) {
             Clazz clazz = cp.getClazz(entryPoint)
             if (clazz == null) {
-                throw new RuntimeException("Entry point not found: " + entryPoint)
+                //       throw new RuntimeException("Entry point not found: " + entryPoint)
+             } else {
+                unused.remove(clazz)
+                unused.removeAll(clazz.transitiveDependencies)
             }
-
-            unused.remove(clazz)
-            unused.removeAll(clazz.transitiveDependencies)
         }
 
         return unused.collect { it.name }.toSet()
